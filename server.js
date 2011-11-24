@@ -6,16 +6,23 @@ var config = require("./config");
 
 var formPage = "\
   <html>\
-    <form action='/send_email' method='POST'>\
-      <label for='subject'>Subject</label>\
-      <input name='subject' id='subject'/>\
-      <br>\
-      <label for='body'>Body</label>\
-      <textarea name='body' id='body'></textarea>\
-      <br>\
-      <input type='submit'/>\
-    </form>\
-  </html>";
+    <body onload='setFocus()'>\
+      <form action='/' method='POST'>\
+        <label for='subject'>Subject</label>\
+        <input name='subject' id='subject'/>\
+        <br>\
+        <label for='body'>Body</label>\
+        <textarea name='body' id='body'></textarea>\
+        <br>\
+        <input type='submit'/>\
+      </form>\
+    </body>\
+  </html>\
+  <script type='text/javascript'>\
+    function setFocus() {\
+     document.getElementById('subject').focus();\
+    }\
+</script>";
 
 function sendEmail(emailAddress, subject, body) {
   console.log('sending email to "' + emailAddress + '" with subject "' + subject + '" and body "' + body + '".');
