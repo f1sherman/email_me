@@ -1,6 +1,6 @@
 # EmailMe: a simple app for emailing notes to yourself
 
-### Installation
+### Description
 
 Trivial nodejs app that will send emails to a pre-defined email address.  Requires a local smtp server and npm to install the mailer package.
 
