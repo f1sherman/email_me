@@ -8,20 +8,20 @@ I created this project as an exercise to learn about nodejs but I've ended up us
 
 ### Installation
 
-*   Clone the repo 
+Clone the repo 
   
     git clone git://github.com/f1sherman/email_me.git
 
-*   Copy the config template to config.js 
+Copy the config template to config.js 
   
     cp config.js.template config.js
 
-*   Edit config.js and add your own values
-*   Install mailer 
+Edit config.js and add your own values
+Install mailer 
   
     npm install mailer
 
-*   Start the app 
+Start the app 
 
     node server.js &
 
