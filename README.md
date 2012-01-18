@@ -16,7 +16,7 @@ Copy the config template to config.js
   
     cp config.js.template config.js
 
-Edit config.js and add your own values
+Edit config.js and add your own values  
 Install mailer 
   
     npm install mailer
