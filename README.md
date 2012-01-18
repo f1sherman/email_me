@@ -27,4 +27,4 @@ Start the app
 
 ### License
 
-EmailMe is released under the [MIT License](www.opensource.org/licenses/MIT)
+EmailMe is released under the [MIT License](http://www.opensource.org/licenses/MIT)
