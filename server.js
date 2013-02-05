@@ -5,24 +5,20 @@ var mailer = require("mailer");
 var config = require("./config");
 
 var formPage = "\
+  <meta name='viewport' content='width=device-width, initial-scale=1.0'> \
   <html>\
-    <body onload='setFocus()'>\
+    <body>\
       <form action='/' method='POST'>\
-        <label for='subject'>Subject</label>\
-        <input name='subject' id='subject'/>\
+        <label for='subject' style='display: block; clear: both'>Subject</label>\
+        <input name='subject' id='subject' autofocus style='width: 100%; font-size: 1.5em'/>\
         <br>\
-        <label for='body'>Body</label>\
-        <textarea name='body' id='body'></textarea>\
+        <label for='body' style='display: block; clear: both'>Body</label>\
+        <textarea name='body' id='body' style='width: 100%; font-size: 1.5em'></textarea>\
         <br>\
-        <input type='submit'/>\
+        <input type='submit' style='font-size: 1em'/>\
       </form>\
     </body>\
-  </html>\
-  <script type='text/javascript'>\
-    function setFocus() {\
-     document.getElementById('subject').focus();\
-    }\
-</script>";
+  </html>";
 
 function sendEmail(emailAddress, subject, body) {
   console.log('sending email to "' + emailAddress + '" with subject "' + subject + '" and body "' + body + '".');
