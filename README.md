@@ -2,7 +2,7 @@
 
 ### Description
 
-Trivial nodejs app that will send emails to a pre-defined email address.  Requires a local smtp server and npm to install the mailer package.  It's been tested under node 0.6.1 but will likely run on other versions.
+Trivial nodejs app that will send emails to a pre-defined email address.  Requires a local smtp server and npm to install the mailer package.  It's been tested under node 0.6.2 but will likely run on other versions.
 
 I created this project as an exercise to learn about nodejs but I've ended up using it almost daily.
 
@@ -19,7 +19,7 @@ Copy the config template to config.js
 Edit config.js and add your own values  
 Install mailer 
   
-    npm install mailer
+    npm install nodemailer
 
 Start the app 
 
