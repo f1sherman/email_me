@@ -1,7 +1,7 @@
 var http = require("http");
 var url = require("url");
 var querystring = require("querystring");
-var mailer = require("mailer");
+var nodemailer = require("nodemailer");
 var config = require("./config");
 
 var formPage = "\
@@ -23,29 +23,31 @@ var formPage = "\
 function sendEmail(emailAddress, subject, body) {
   console.log('sending email to "' + emailAddress + '" with subject "' + subject + '" and body "' + body + '".');
 
-  mailer.send({
-    host : "localhost",              // smtp server hostname
-    port : "25",                     // smtp server port
-    domain : "localhost",            // domain used by client to identify itself to server
+  var transport = nodemailer.createTransport("Sendmail", "/usr/sbin/sendmail");
+
+  var message = {
     to : emailAddress,
     from : config.email.from,
     subject : subject,
-    body: body,
-    authentication : config.smtp.auth_method,        // auth login is supported; anything else is no auth
-    username : config.smtp.username,       // Base64 encoded username (even if it's not used mailer will error if it's not present)
-    password : config.smtp.password        // Base64 encoded password (ditto)
-  },
-  function(err, result){
-    if(err){ console.log(err); }
+    body: body
+  };
+
+  transport.sendMail(message, function(error) {
+    if(error) {
+      console.log('Error occured');
+      console.log(error.message);
+      return;
+    }
+    console.log('Message sent successfully!');
   });
 }
 
 http.createServer(function(request, response) {
   var responseContent;
-  
+
   if(request.method === 'POST') {
     var postData = "";
-    
+
     request.addListener("data", function(postDataChunk) {
       postData += postDataChunk;
       var subject = querystring.parse(postData).subject;
@@ -58,7 +60,7 @@ http.createServer(function(request, response) {
   } else {
     responseContent = formPage;
   }
-  
+
   response.writeHead(200, {"Content-Type": "text/html"});
   response.write(responseContent);
 

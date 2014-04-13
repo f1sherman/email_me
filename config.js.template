@@ -8,9 +8,4 @@ config.smtp = {};
 config.email.from = 'from@email_address.com';   // fill in your from email address here
 config.email.to = 'to@email_address.com';       // fill in your to email address here
 
-config.smtp.auth_method = '';                   // set to 'login' to enable auth
-config.smtp.username = 'dummy';                 // Base64 encoded username (needs to be set to something even if it isn't used or
-                                                // mailer will throw an Exception)
-config.smtp.password = '';                      // Base64 encoded password
-
 module.exports = config;
